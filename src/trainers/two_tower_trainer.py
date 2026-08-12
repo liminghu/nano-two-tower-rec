@@ -26,7 +26,7 @@ class TwoTowerTrainer(BaseTrainer):
         with tqdm(train_loader, desc='Training') as pbar:
             for batch in pbar:
                 print(batch)
-                print(batch['user_ids'])
+                #print(batch['user_ids'])
                 features, labels = batch[0], batch[1]
 
                 # 2. Extract and send your specific features to the target device
