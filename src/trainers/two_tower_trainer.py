@@ -27,12 +27,22 @@ class TwoTowerTrainer(BaseTrainer):
             for batch in pbar:
                 print(batch)
                 print(batch['user_ids'])
+                features, labels = batch[0], batch[1]
+
+                # 2. Extract and send your specific features to the target device
+                user_features = features['user_features'].to(self.device)
+                business_features = features['business_features'].to(self.device)
+                category_features = features['category_features'].to(self.device)
+
+                # 3. Send labels to the target device
+                labels = labels.to(self.device)
+
                 user_ids = batch['user_ids'].to(self.device)
                 item_ids = batch['item_ids'].to(self.device)
                 labels = batch['labels'].to(self.device)
                 
                 # Forward pass
-                user_embeddings, item_embeddings = self.model(user_ids, item_ids)
+                user_embeddings, item_embeddings = self.model(user_features, business_features)
                 loss = self.criterion(user_embeddings, item_embeddings, labels)
                 
                 # Backward pass
