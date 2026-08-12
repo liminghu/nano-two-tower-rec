@@ -37,9 +37,9 @@ class TwoTowerTrainer(BaseTrainer):
                 # 3. Send labels to the target device
                 labels = labels.to(self.device)
 
-                user_ids = batch['user_ids'].to(self.device)
-                item_ids = batch['item_ids'].to(self.device)
-                labels = batch['labels'].to(self.device)
+                #user_ids = batch['user_ids'].to(self.device)
+                #item_ids = batch['item_ids'].to(self.device)
+                #labels = batch['labels'].to(self.device)
                 
                 # Forward pass
                 user_embeddings, item_embeddings = self.model(user_features, business_features)
