@@ -26,6 +26,7 @@ class TwoTowerTrainer(BaseTrainer):
         with tqdm(train_loader, desc='Training') as pbar:
             for batch in pbar:
                 print(batch)
+                print(batch['user_ids'])
                 user_ids = batch['user_ids'].to(self.device)
                 item_ids = batch['item_ids'].to(self.device)
                 labels = batch['labels'].to(self.device)
