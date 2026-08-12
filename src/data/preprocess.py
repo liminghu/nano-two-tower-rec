@@ -106,7 +106,7 @@ def main():
     sample_size = 100000  # 可以根据Kaggle内存调整这个数值
     
     # 设置数据路径
-    data_dir = Path("../input/yelp-dataset")  # Kaggle数据集的标准路径
+    data_dir = Path("/kaggle/input/datasets/organizations/yelp-dataset/yelp-dataset")  # Kaggle数据集的标准路径 /kaggle/input/datasets/organizations/yelp-dataset/yelp-dataset/yelp_academic_dataset_review.json
     output_dir = Path("../working/data/processed")
     output_dir.mkdir(parents=True, exist_ok=True)
     
